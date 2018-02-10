@@ -24,6 +24,9 @@ android {
         }
     }
 
+    lintOptions{
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -34,11 +37,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
+
 publish {
     userOrg = 'yatoooon'
-    groupId = 'me.yatoooon.screenadaptation'
-    artifactId = 'maven'
+    groupId = 'me.yatoooon'
+    repoName = 'screenadaptation'
+    artifactId = 'screenadaptation'
     version = '1.0.0'
-    description = 'a screen adaptation demo'
+    description = 'an android screen adaptation demo'
     website = "https://github.com/yatoooon/AndroidScreenAdaptation"
 }
