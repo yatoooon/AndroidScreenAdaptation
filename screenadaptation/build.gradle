@@ -39,6 +39,6 @@ publish {
     groupId = 'me.yatoooon.screenadaptation'
     artifactId = 'maven'
     version = '1.0.0'
-    description = 'android screen adaptation'
-    website = "https://github.com/novoda/${rootProject.name}"
+    description = 'a screen adaptation demo'
+    website = "https://github.com/yatoooon/AndroidScreenAdaptation"
 }
