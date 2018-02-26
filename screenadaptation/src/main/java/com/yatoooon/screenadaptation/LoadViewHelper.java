@@ -14,12 +14,16 @@ public class LoadViewHelper {
     private ActualScreen actualScreen;
     private Context context;
     private int drawingsize;
+    private int drawingdpi;
     private float fontsize;
+    private String unit;
 
-    public LoadViewHelper(Context context, int drawingsize, float fontsize) {
+    public LoadViewHelper(Context context, int drawingsize, int drawingdpi, float fontsize, String unit) {
         this.context = context;
         this.drawingsize = drawingsize;
+        this.drawingdpi = drawingdpi;
         this.fontsize = fontsize;
+        this.unit = unit;
         actualScreen = new ActualScreen(context);
     }
 
@@ -87,6 +91,16 @@ public class LoadViewHelper {
     }
 
     private float calculateValue(float value) {
-        return value * ((float) actualScreen.width / (float) drawingsize);
+        if (unit.equals("px")) {
+            return value * ((float) actualScreen.width / (float) drawingsize);
+        } else if (unit.equals("dp")) {
+            int dip = dp2pxutils.px2dip(context, value);
+            value = ((float) drawingdpi / 160) * dip;
+            return value * ((float) actualScreen.width / (float) drawingsize);
+
+        }
+        return 0;
     }
+
+
 }

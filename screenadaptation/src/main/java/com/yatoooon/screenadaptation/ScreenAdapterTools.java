@@ -9,11 +9,13 @@ import android.content.Context;
 public class ScreenAdapterTools {
 
     private LoadViewHelper loadViewHelper;
-    public LoadViewHelper getInstance(){
+
+    public LoadViewHelper getInstance() {
         return loadViewHelper;
     }
-    public ScreenAdapterTools(Context context, int drawingsize, float fontsize) {
-        loadViewHelper = new LoadViewHelper(context, drawingsize, fontsize);
+
+    public ScreenAdapterTools(Context context, int drawingsize, int drawingdpi,float fontsize, String unit) {
+        loadViewHelper = new LoadViewHelper(context, drawingsize, drawingdpi,fontsize, unit);
     }
 
 }

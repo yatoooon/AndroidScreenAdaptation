@@ -15,6 +15,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        screenAdapterTools = new ScreenAdapterTools(this, 1080, 1);
+        screenAdapterTools = new ScreenAdapterTools(this, 1080, 480, 1, "dp");
     }
 }

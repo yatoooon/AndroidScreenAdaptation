@@ -10,22 +10,29 @@ import static android.content.Context.WINDOW_SERVICE;
 
 public class ActualScreen {
 
-    public int width;
-    public int height;
+    public float density;
+    public float densityDpi;
+    public float width;
+    public float height;
 
     public ActualScreen(Context context) {
-        int[] screenSize = screenWidthHeight(context);
-        if (screenSize.length == 2) {
-            width = screenSize[0];
-            height = screenSize[1];
+        float[] screenInfo = screenWidthHeight(context);
+        if (screenInfo.length == 4) {
+            width = screenInfo[0];
+            height = screenInfo[1];
+            density = screenInfo[2];
+            densityDpi = screenInfo[3];
         }
     }
 
-    public static int[] screenWidthHeight(Context context) {
+    public static float[] screenWidthHeight(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        return new int[]{displayMetrics.widthPixels, displayMetrics.heightPixels};
+        System.out.println("density"+displayMetrics.density + "densityDpi"+displayMetrics.densityDpi + "scaledDensity"+displayMetrics.scaledDensity + "xdpi"+displayMetrics.xdpi + "ydpi"+displayMetrics.ydpi);
+        return new float[]{displayMetrics.widthPixels, displayMetrics.heightPixels, displayMetrics.density, displayMetrics.densityDpi};
     }
+
+
 }
 

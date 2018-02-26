@@ -44,6 +44,6 @@ publish {
     repoName = 'screenadaptation'
     artifactId = 'screenadaptation'
     version = '1.0.0'
-    description = 'an android screen adaptation demo'
+    description = 'an android screen adaptation library'
     website = "https://github.com/yatoooon/AndroidScreenAdaptation"
 }
