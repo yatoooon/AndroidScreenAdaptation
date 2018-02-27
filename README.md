@@ -35,6 +35,11 @@ public class App extends Application {
             android:value="px" />   //你的布局里面用的是px这就写px,你的布局里面用的是dp这就写dp,要统一,不要一会儿px一会儿dp,字体也用px或者dp,原因后面会写.
 </application>    
 ```
+```
+宽(标准值)	     240	   320	    480	    720	     1080	     1440
+DPI等级	       LDPI	   MDPI	   HDPI	   XHDPI	   XXHDPI	   XXXHDPI
+DPI数值	       120	    160	    240	    320	     480	      640
+```
 3. **开始使用**
     
       (1.)在Acivity中,找到setcontentview(R.layout.xxxxxx)
