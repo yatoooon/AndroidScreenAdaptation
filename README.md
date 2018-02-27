@@ -15,13 +15,13 @@ public class App extends Application {
         ScreenAdapterTools.init(this);
     }
 }
-```
+ ```
     * 在AndroidManifest.xml文件中声明使用你自己创建的application并且添加meta-data数据,后面会介绍这些数据的代表的意义
 ```
 <application
         android:name=".App"
         .....
-	    <meta-data
+	 <meta-data
             android:name="designwidth"
             android:value="1080" />  
         <meta-data
