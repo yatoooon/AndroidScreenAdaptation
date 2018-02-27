@@ -6,7 +6,7 @@
 
 2. **初始化工具类**
 
-      (1)创建自己的application继承Application
+      (1.)创建自己的application继承Application
 ``` 
 public class App extends Application {
     @Override
@@ -16,9 +16,7 @@ public class App extends Application {
     }
 }
 ```
-
-      (2)在AndroidManifest.xml文件中声明使用你自己创建的application并且添加meta-data数据,例子上标明了这些数据的代表的意义
-      
+      (2.)在AndroidManifest.xml文件中声明使用你自己创建的application并且添加meta-data数据,例子上标明了这些数据的代表的意义
 ```
 <application
         android:name=".App"
