@@ -36,7 +36,7 @@ public class App extends Application {
 </application>    
 ```
 ```
-宽         	240 	320 	480 	720     1080 	 1440  
+宽         	240 	320 	480 	720     1080 	1440  
 DPI等级	        LDPI	MDPI	HDPI	XHDPI	XXHDPI	XXXHDPI
 DPI数值	        120	160	240	320	480	640
 ```
