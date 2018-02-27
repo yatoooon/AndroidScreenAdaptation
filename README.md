@@ -21,7 +21,7 @@ public class App extends Application {
 <application
         android:name=".App"
         .....
-	 <meta-data
+	<meta-data
             android:name="designwidth"
             android:value="1080" />  
         <meta-data
