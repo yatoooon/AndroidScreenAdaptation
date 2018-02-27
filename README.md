@@ -1,9 +1,45 @@
 # AndroidScreenAdaptation
-## About Me
+## 快速开始
+1. **添加依赖**
+ 
+    ``` implementation 'me.yatoooon:screenadaptation:1.0.1'```
+
+2. **初始化工具类**
+
+   * 创建自己的application继承Application
+``` public class App extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        ScreenAdapterTools.init(this);
+    }
+} ```
+    * 在AndroidManifest.xml文件中声明使用你自己创建的application并且添加meta-data数据,后面会介绍这些数据的代表的意义
+```<application
+        android:name=".App"
+        .....
+	    <meta-data
+            android:name="designwidth"
+            android:value="1080" />  
+        <meta-data
+            android:name="designdpi"
+            android:value="480" />
+        <meta-data
+            android:name="fontsize"
+            android:value="1.0" />
+        <meta-data
+            android:name="unit"
+            android:value="dp" />
+ </application>	
+```
+3. **开始使用**
+
+   
+## 关于我
 * **Email**: <qazasdeszplm@126.com>  
 * **Home**: <http://yatoooon.com>
 
-## License
+## 版权
  ``` 
    Copyright 2018 yatoooon
 
