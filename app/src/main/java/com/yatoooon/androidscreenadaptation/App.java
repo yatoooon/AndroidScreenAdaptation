@@ -10,11 +10,10 @@ import com.yatoooon.screenadaptation.ScreenAdapterTools;
 
 public class App extends Application {
 
-    public static ScreenAdapterTools screenAdapterTools;
-
     @Override
     public void onCreate() {
         super.onCreate();
-        screenAdapterTools = new ScreenAdapterTools(this, 1080, 480, 1, "dp");
+        ScreenAdapterTools.init(this);
     }
+
 }

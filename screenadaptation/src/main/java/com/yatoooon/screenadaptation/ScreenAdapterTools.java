@@ -1,6 +1,8 @@
 package com.yatoooon.screenadaptation;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 
 /**
  * Created by yatoooon on 2018/2/6.
@@ -8,14 +10,27 @@ import android.content.Context;
 
 public class ScreenAdapterTools {
 
-    private LoadViewHelper loadViewHelper;
+    private static LoadViewHelper loadViewHelper;
 
-    public LoadViewHelper getInstance() {
+    public static LoadViewHelper getInstance() {
         return loadViewHelper;
     }
 
-    public ScreenAdapterTools(Context context, int drawingsize, int drawingdpi,float fontsize, String unit) {
-        loadViewHelper = new LoadViewHelper(context, drawingsize, drawingdpi,fontsize, unit);
+    public static void init(Context context) {
+        ApplicationInfo applicationInfo = null;
+        try {
+            applicationInfo = context.getPackageManager().getApplicationInfo(context
+                    .getPackageName(), PackageManager.GET_META_DATA);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        int designwidth = applicationInfo.metaData.getInt("designwidth");
+        int designdpi = applicationInfo.metaData.getInt("designdpi");
+        float fontsize = applicationInfo.metaData.getFloat("fontsize");
+        String unit = applicationInfo.metaData.getString("unit");
+        loadViewHelper = new LoadViewHelper(context, designwidth, designdpi, fontsize, unit);
+
     }
+
 
 }

@@ -29,7 +29,6 @@ public class ActualScreen {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        System.out.println("density"+displayMetrics.density + "densityDpi"+displayMetrics.densityDpi + "scaledDensity"+displayMetrics.scaledDensity + "xdpi"+displayMetrics.xdpi + "ydpi"+displayMetrics.ydpi);
         return new float[]{displayMetrics.widthPixels, displayMetrics.heightPixels, displayMetrics.density, displayMetrics.densityDpi};
     }
 
