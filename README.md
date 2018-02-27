@@ -15,8 +15,10 @@ public class App extends Application {
         ScreenAdapterTools.init(this);
     }
 }
- ```
+```
+
       (2)在AndroidManifest.xml文件中声明使用你自己创建的application并且添加meta-data数据,例子上标明了这些数据的代表的意义
+      
 ```
 <application
         android:name=".App"
@@ -37,7 +39,7 @@ public class App extends Application {
 ```
 3. **开始使用**
     
-    (1)在Acivity中,找到setcontentview(R.layout.xxxxxx)
+      (1.)在Acivity中,找到setcontentview(R.layout.xxxxxx)
 ```
 public class MainActivity extends AppCompatActivity {
 
@@ -51,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-    (2)在Fragment或recycleview或自定义view中,找到布局填充器
-```
-public class TestFragment extends Fragment {
+      (2.)在Fragment或recycleview或自定义view中,找到布局填充器
+    
+```public class TestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.test_px, container, false);
@@ -63,7 +65,7 @@ public class TestFragment extends Fragment {
     }
 }
 ```
-    (3)现在打开你的布局文件,并且打开预览,点击预览上部的小手机图标选择和你设计图匹配的模拟器,然后就可以按照设计图编写布局文件,单位用px还是dp取决于你清单文件中的meta_data中unit填写的值,布局文件完成后,你看到的预览是什么样,各种真机运行出来就是什么样
+      (3.)现在打开你的布局文件,并且打开预览,点击预览上部的小手机图标选择和你设计图匹配的模拟器,然后就可以按照设计图测量并编写布局文件,测量和编写的单位用px还是dp取决于你清单文件中的meta_data中unit填写的值,暂时只支持宽 高 padding layout_margin 字体大小,布局文件完成后,你看到的预览是什么样,各种真机运行出来就是什么样
 
 ## 关于我
 * **Email**: <qazasdeszplm@126.com> 
