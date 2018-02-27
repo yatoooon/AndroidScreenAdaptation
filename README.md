@@ -26,8 +26,8 @@ public class App extends Application {
             android:value="1080" />  //设计图的宽,单位是像素,推荐用markman测量
         <meta-data
             android:name="designdpi"
-            android:value="480" />   //设计图对应的dpi,根据下面的那张图找到对应的dpi,比如1080就对应480
-        <meta-data
+            android:value="480" />   //设计图对应的dpi,根据下面的那张图找到对应的dpi,比如1080就对应480dpi
+        <meta-data
             android:name="fontsize"
             android:value="1.0" />   //全局字体的大小,有时候老板会觉得你的所有的字小了或者大了,你总不能一个一个去改吧
         <meta-data
