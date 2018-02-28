@@ -11,7 +11,11 @@ import android.widget.TextView;
 
 public class LoadViewHelper {
 
-    private ActualScreen actualScreen;
+    public float actualdensity;
+    public float actualdensityDpi;
+    public float actualwidth;
+    public float actualheight;
+
     private Context context;
     private int designwidth;
     private int designdpi;
@@ -24,7 +28,13 @@ public class LoadViewHelper {
         this.designdpi = designdpi;
         this.fontsize = fontsize;
         this.unit = unit;
-        actualScreen = new ActualScreen(context);
+        float[] actualScreenInfo = ActualScreen.screenInfo(context);
+        if (actualScreenInfo.length == 4) {
+            actualwidth = actualScreenInfo[0];
+            actualheight = actualScreenInfo[1];
+            actualdensity = actualScreenInfo[2];
+            actualdensityDpi = actualScreenInfo[3];
+        }
     }
 
     public void loadView(ViewGroup viewGroup) {
@@ -92,11 +102,11 @@ public class LoadViewHelper {
 
     private float calculateValue(float value) {
         if (unit.equals("px")) {
-            return value * ((float) actualScreen.width / (float) designwidth);
+            return value * ((float) actualwidth / (float) designwidth);
         } else if (unit.equals("dp")) {
             int dip = dp2pxutils.px2dip(context, value);
             value = ((float) designdpi / 160) * dip;
-            return value * ((float) actualScreen.width / (float) designwidth);
+            return value * ((float) actualwidth / (float) designwidth);
 
         }
         return 0;
