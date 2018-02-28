@@ -108,9 +108,9 @@ public class LoadViewHelper {
     }
 
     private float calculateValue(float value) {
-        if (unit.equals("px")) {
+        if ("px".equals(unit)) {
             return value * ((float) actualwidth / (float) designwidth);
-        } else if (unit.equals("dp")) {
+        } else if ("dp".equals(unit)) {
             int dip = dp2pxutils.px2dip(context, value);
             value = ((float) designdpi / 160) * dip;
             return value * ((float) actualwidth / (float) designwidth);

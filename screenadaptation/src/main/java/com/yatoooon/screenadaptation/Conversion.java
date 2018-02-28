@@ -2,7 +2,6 @@ package com.yatoooon.screenadaptation;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * Created by yatoooon on 2018/2/6.
