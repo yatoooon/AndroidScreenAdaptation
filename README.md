@@ -1,4 +1,6 @@
 # AndroidScreenAdaptation
+## 效果展示
+![](http://www.yatoooon.com/images/shipeixiaoguotu.png)
 ## 快速开始
 1. **添加依赖**
  
