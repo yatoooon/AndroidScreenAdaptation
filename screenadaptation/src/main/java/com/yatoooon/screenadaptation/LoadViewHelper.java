@@ -89,11 +89,18 @@ public class LoadViewHelper {
 
 
     public void loadLayoutMargin(View view) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = null;
+        if (params instanceof ViewGroup.MarginLayoutParams) {
+            marginLayoutParams = (ViewGroup.MarginLayoutParams) params;
+        } else {
+            marginLayoutParams = new ViewGroup.MarginLayoutParams(params);
+        }
         marginLayoutParams.leftMargin = setLayoutMargin(marginLayoutParams.leftMargin);
         marginLayoutParams.topMargin = setLayoutMargin(marginLayoutParams.topMargin);
         marginLayoutParams.rightMargin = setLayoutMargin(marginLayoutParams.rightMargin);
         marginLayoutParams.bottomMargin = setLayoutMargin(marginLayoutParams.bottomMargin);
+        view.setLayoutParams(marginLayoutParams);
     }
 
     public int setLayoutMargin(int layoutmarginvalue) {

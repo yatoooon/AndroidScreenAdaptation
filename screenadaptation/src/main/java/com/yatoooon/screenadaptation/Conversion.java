@@ -21,18 +21,10 @@ public class Conversion {
 
     public void transform(View view, LoadViewHelper loadViewHelper) {
         if (view.getLayoutParams() != null) {
-            System.out.println("Start WidthHeight               " + view.getLayoutParams().width + "      " + view.getLayoutParams().height);
             loadViewHelper.loadWidthHeightFont(view);
-            System.out.println("End  WidthHeight             " + view.getLayoutParams().width + "      " + view.getLayoutParams().height);
-            System.out.println("Start  Padding               " + view.getPaddingLeft() + "      " + view.getPaddingTop() + "     " + view.getPaddingRight() + "     " + view.getPaddingBottom() + "     ");
             loadViewHelper.loadPadding(view);
-            System.out.println("End  Padding               " + view.getPaddingLeft() + "      " + view.getPaddingTop() + "     " + view.getPaddingRight() + "     " + view.getPaddingBottom() + "     ");
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            System.out.println("Start  Margin               " + marginLayoutParams.leftMargin + "      " + marginLayoutParams.topMargin + "     " + marginLayoutParams.rightMargin + "     " + marginLayoutParams.bottomMargin);
             loadViewHelper.loadLayoutMargin(view);
-            System.out.println("End  Margin               " + marginLayoutParams.leftMargin + "      " + marginLayoutParams.topMargin + "     " + marginLayoutParams.rightMargin + "     " + marginLayoutParams.bottomMargin);
         }
-
 
     }
 }
