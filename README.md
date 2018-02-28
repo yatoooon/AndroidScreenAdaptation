@@ -44,7 +44,7 @@ DPI数值	        120	160	240	320	480	640
 ```
 3. **开始使用**
     
-      (1.)在Acivity中,找到setcontentview(R.layout.xxxxxx)
+      (1.)在Activity中,找到setcontentview(R.layout.xxxxxx)
 ```
 public class MainActivity extends AppCompatActivity {
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-      (2.)在Fragment或recycleview或自定义view中,找到布局填充器
+      (2.)在Fragment或recyclerview或自定义view中,找到布局填充器
     
 ```public class TestFragment extends Fragment {
     @Override
