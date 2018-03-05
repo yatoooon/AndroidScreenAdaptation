@@ -14,7 +14,7 @@ public class TestActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_px);
+        setContentView(R.layout.test_dp);
         ScreenAdapterTools.getInstance().loadView((ViewGroup) getWindow().getDecorView());
     }
 }

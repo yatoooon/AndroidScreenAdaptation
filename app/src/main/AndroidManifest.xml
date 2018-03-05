@@ -32,7 +32,7 @@
             android:value="1.0" />
         <meta-data
             android:name="unit"
-            android:value="px" />
+            android:value="dp" />
 
     </application>
 
