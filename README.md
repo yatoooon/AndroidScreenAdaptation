@@ -59,9 +59,10 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-      (2.)在Fragment或recyclerview或自定义view中,找到布局填充器
+      (2.)在Fragment或recyclerview,listview或gridview,viewpager,自定义view等等等,只要能找到布局填充器
     
-```public class TestFragment extends Fragment {
+```
+public class TestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.test_px, container, false);
