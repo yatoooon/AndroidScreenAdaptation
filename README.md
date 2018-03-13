@@ -35,7 +35,7 @@ public class App extends Application {
             android:value="1.0" />   //全局字体的大小,有时候老板会觉得你的所有的字小了或者大了,你总不能一个一个去改吧
         <meta-data
             android:name="unit"
-            android:value="px" />   //你的布局里面用的是px这就写px,你的布局里面用的是dp这就写dp,要统一,不要一会儿px一会儿dp,字体也用px或者dp,原因后面会写.
+            android:value="px" />   //你的布局里面用的是px这就写px,你的布局里面用的是dp这就写dp,要统一,不要一会儿px一会儿dp,字体也用px或者dp,因为据我观察微信qq用的肯定不是sp.
 </application>    
 ```
 ```
