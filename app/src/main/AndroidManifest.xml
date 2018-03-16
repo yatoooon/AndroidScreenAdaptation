@@ -20,6 +20,7 @@
         <activity android:name=".TestActivity" />
         <activity android:name=".TestFragmentActivity" />
         <activity android:name=".TestRecyclerViewActivity" />
+        <activity android:name=".TestCustomViewActivity" />
 
         <meta-data
             android:name="designwidth"
