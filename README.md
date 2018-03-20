@@ -5,7 +5,7 @@
 ## 快速开始
 1. **添加依赖**
  
-    ``` implementation 'me.yatoooon:screenadaptation:1.0.4'```
+    ``` implementation 'me.yatoooon:screenadaptation:1.0.5'```
 
 2. **初始化工具类**
 
