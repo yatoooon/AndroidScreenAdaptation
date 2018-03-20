@@ -20,6 +20,9 @@ public class Conversion {
             loadViewHelper.loadWidthHeightFont(view);
             loadViewHelper.loadPadding(view);
             loadViewHelper.loadLayoutMargin(view);
+            loadViewHelper.loadMaxWidthAndHeight(view);
+            loadViewHelper.loadMinWidthAndHeight(view);
         }
     }
+
 }

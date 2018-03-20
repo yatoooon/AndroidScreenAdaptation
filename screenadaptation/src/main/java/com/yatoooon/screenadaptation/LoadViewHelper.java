@@ -96,6 +96,16 @@ public class LoadViewHelper {
         view.setLayoutParams(marginLayoutParams);
     }
 
+    public void loadMaxWidthAndHeight(View view) {
+        ViewUtils.setMaxWidth(view,setValue(ViewUtils.getMaxWidth(view)));
+        ViewUtils.setMaxHeight(view,setValue(ViewUtils.getMaxHeight(view)));
+    }
+
+    public void loadMinWidthAndHeight(View view) {
+        ViewUtils.setMinWidth(view,setValue(ViewUtils.getMinWidth(view)));
+        ViewUtils.setMinHeight(view,setValue(ViewUtils.getMinHeight(view)));
+    }
+
     public int setValue(int value) {
         if (value == 0) {
             return 0;
