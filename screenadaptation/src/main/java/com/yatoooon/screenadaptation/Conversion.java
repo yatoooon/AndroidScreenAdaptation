@@ -9,14 +9,11 @@ import android.view.View;
 
 public class Conversion {
 
-    //    public static final int MATCH_PARENT = -1;
-    //    public static final int WRAP_CONTENT = -2;
     Context context;
 
     public Conversion(Context context) {
         this.context = context;
     }
-
 
     public void transform(View view, LoadViewHelper loadViewHelper) {
         if (view.getLayoutParams() != null) {
@@ -24,6 +21,5 @@ public class Conversion {
             loadViewHelper.loadPadding(view);
             loadViewHelper.loadLayoutMargin(view);
         }
-
     }
 }

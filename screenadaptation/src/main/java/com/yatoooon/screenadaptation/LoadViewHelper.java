@@ -55,17 +55,14 @@ public class LoadViewHelper {
     public void loadWidthHeightFont(View view) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams.width > 0) {
-            layoutParams.width = setWidthHeight(layoutParams.width);
+            layoutParams.width = setValue(layoutParams.width);
         }
         if (layoutParams.height > 0) {
-            layoutParams.height = setWidthHeight(layoutParams.height);
+            layoutParams.height = setValue(layoutParams.height);
         }
         loadViewFont(view);
     }
 
-    private int setWidthHeight(int value) {
-        return (int) calculateValue(value);
-    }
 
     private void loadViewFont(View view) {
         if ((view instanceof TextView)) {
@@ -80,11 +77,7 @@ public class LoadViewHelper {
 
 
     public void loadPadding(View view) {
-        view.setPadding(setPadding(view.getPaddingLeft()), setPadding(view.getPaddingTop()), setPadding(view.getPaddingRight()), setPadding(view.getPaddingBottom()));
-    }
-
-    private int setPadding(int paddingValue) {
-        return (int) calculateValue(paddingValue);
+        view.setPadding(setValue(view.getPaddingLeft()), setValue(view.getPaddingTop()), setValue(view.getPaddingRight()), setValue(view.getPaddingBottom()));
     }
 
 
@@ -96,15 +89,18 @@ public class LoadViewHelper {
         } else {
             marginLayoutParams = new ViewGroup.MarginLayoutParams(params);
         }
-        marginLayoutParams.leftMargin = setLayoutMargin(marginLayoutParams.leftMargin);
-        marginLayoutParams.topMargin = setLayoutMargin(marginLayoutParams.topMargin);
-        marginLayoutParams.rightMargin = setLayoutMargin(marginLayoutParams.rightMargin);
-        marginLayoutParams.bottomMargin = setLayoutMargin(marginLayoutParams.bottomMargin);
+        marginLayoutParams.leftMargin = setValue(marginLayoutParams.leftMargin);
+        marginLayoutParams.topMargin = setValue(marginLayoutParams.topMargin);
+        marginLayoutParams.rightMargin = setValue(marginLayoutParams.rightMargin);
+        marginLayoutParams.bottomMargin = setValue(marginLayoutParams.bottomMargin);
         view.setLayoutParams(marginLayoutParams);
     }
 
-    public int setLayoutMargin(int layoutmarginvalue) {
-        return (int) calculateValue(layoutmarginvalue);
+    public int setValue(int value) {
+        if (value == 0) {
+            return 0;
+        }
+        return (int) calculateValue(value);
     }
 
     private float calculateValue(float value) {
