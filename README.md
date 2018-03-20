@@ -76,7 +76,7 @@ public class TestFragment extends Fragment {
             ScreenAdapterTools.getInstance().loadView((ViewGroup) view);
         }    
 ```
-      (3.)现在打开你的布局文件,并且打开预览,点击预览上部的小手机图标选择和你设计图匹配的模拟器,然后就可以按照设计图测量并编写布局文件,测量和编写的单位用px还是dp取决于你清单文件中的meta_data中unit填写的值,暂时只支持宽 高 padding layout_margin 字体大小,布局文件完成后,你看到的预览是什么样,各种真机运行出来就是什么样.
+      (3.)现在打开你的布局文件,并且打开预览,点击预览上部的小手机图标选择和你设计图匹配的模拟器,然后就可以按照设计图测量并编写布局文件,测量和编写的单位用px还是dp取决于你清单文件中的meta_data中unit填写的值,暂时只支持宽 高 padding layout_margin 字体大小  minmaxWidthHeight这几个属性,布局文件完成后,你看到的预览是什么样,各种真机运行出来就是什么样.
 ## 原理
 ```
   那些长篇大论的文章我也不想提,想必读者已经在别处看疯了,知道几个最简单的概念用起来就可以了  
