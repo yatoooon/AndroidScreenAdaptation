@@ -28,16 +28,14 @@ public class LoadViewHelper {
         this.designdpi = designdpi;
         this.fontsize = fontsize;
         this.unit = unit;
-        float[] actualScreenInfo = ActualScreen.screenInfo(context);
-        if (actualScreenInfo.length == 4) {
-            actualwidth = actualScreenInfo[0];
-            actualheight = actualScreenInfo[1];
-            actualdensity = actualScreenInfo[2];
-            actualdensityDpi = actualScreenInfo[3];
-        }
+        setActualParams(context);
     }
 
     public void reset(Context context) {
+        setActualParams(context);
+    }
+
+    public void setActualParams(Context context) {
         float[] actualScreenInfo = ActualScreen.screenInfo(context);
         if (actualScreenInfo.length == 4) {
             actualwidth = actualScreenInfo[0];
@@ -48,10 +46,10 @@ public class LoadViewHelper {
     }
 
     public void loadView(ViewGroup viewGroup) {
-        loadView(viewGroup, new Conversion(context));
+        loadView(viewGroup, new SimpleConversion());
     }
 
-    public void loadView(ViewGroup viewGroup, Conversion conversion) {
+    public final void loadView(ViewGroup viewGroup, IConversion conversion) {
         conversion.transform(viewGroup, this);
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if (viewGroup.getChildAt(i) instanceof ViewGroup) {

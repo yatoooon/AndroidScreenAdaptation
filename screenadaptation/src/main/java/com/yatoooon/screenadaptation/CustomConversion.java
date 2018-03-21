@@ -7,14 +7,9 @@ import android.view.View;
  * Created by yatoooon on 2018/2/6.
  */
 
-public class Conversion {
+public class CustomConversion implements IConversion {
 
-    Context context;
-
-    public Conversion(Context context) {
-        this.context = context;
-    }
-
+    @Override
     public void transform(View view, LoadViewHelper loadViewHelper) {
         if (view.getLayoutParams() != null) {
             loadViewHelper.loadWidthHeightFont(view);
