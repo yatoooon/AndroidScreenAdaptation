@@ -3,6 +3,7 @@ package com.yatoooon.screenadaptation;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.view.ViewGroup;
 
 /**
  * Created by yatoooon on 2018/2/6.
@@ -10,34 +11,47 @@ import android.content.pm.PackageManager;
 
 public class ScreenAdapterTools {
 
-    private static LoadViewHelper loadViewHelper;
+    private static AbsLoadViewHelper sLoadViewHelper;
 
-    public static LoadViewHelper getInstance() {
-        return loadViewHelper;
+    public static AbsLoadViewHelper getInstance() {
+        return sLoadViewHelper;
     }
-
-    private static boolean isInitialised = false;
-
+    
     public static void init(Context context) {
-        if (isInitialised){
-            loadViewHelper.reset(context);
-        }else {
-            ApplicationInfo applicationInfo = null;
-            try {
-                applicationInfo = context.getPackageManager().getApplicationInfo(context
-                        .getPackageName(), PackageManager.GET_META_DATA);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
+        init(context, new IProvider() {
+            @Override
+            public AbsLoadViewHelper provide(Context context, int designWidth, int designDpi, float fontSize, String unit) {
+                return new LoadViewHelper(context,designWidth,designDpi,fontSize,unit);
             }
-            int designwidth = applicationInfo.metaData.getInt("designwidth");
-            int designdpi = applicationInfo.metaData.getInt("designdpi");
-            float fontsize = applicationInfo.metaData.getFloat("fontsize");
-            String unit = applicationInfo.metaData.getString("unit");
-            loadViewHelper = new LoadViewHelper(context, designwidth, designdpi, fontsize, unit);
-            isInitialised = true;
+        });
+    }
+    
+    public static void init(Context context,IProvider provider) {
+        ApplicationInfo applicationInfo = null;
+        try {
+            applicationInfo = context.getPackageManager().getApplicationInfo(context
+                    .getPackageName(), PackageManager.GET_META_DATA);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
-
+        int designwidth = applicationInfo.metaData.getInt("designwidth");
+        int designdpi = applicationInfo.metaData.getInt("designdpi");
+        float fontsize = applicationInfo.metaData.getFloat("fontsize");
+        String unit = applicationInfo.metaData.getString("unit");
+        sLoadViewHelper = provider.provide(context,designwidth,designdpi,fontsize,unit);
+    }
+        
+    public interface IProvider {
+        AbsLoadViewHelper provide(Context context,int designWidth, int designDpi, float fontSize, String unit);
+    }
+        
+    public static void adaptView(ViewGroup viewGroup) {
+        sLoadViewHelper.loadView(viewGroup);
     }
 
+    public static void reset(Context context) {
+        sLoadViewHelper.reset(context);
+    }
+    
 
 }

@@ -1,7 +1,9 @@
-package com.yatoooon.screenadaptation;
+package com.yatoooon.screenadaptation.conversion;
 
-import android.content.Context;
 import android.view.View;
+
+import com.yatoooon.screenadaptation.AbsLoadViewHelper;
+import com.yatoooon.screenadaptation.LoadViewHelper;
 
 /**
  * Created by yatoooon on 2018/2/6.
@@ -10,7 +12,7 @@ import android.view.View;
 public class CustomConversion implements IConversion {
 
     @Override
-    public void transform(View view, LoadViewHelper loadViewHelper) {
+    public void transform(View view, AbsLoadViewHelper loadViewHelper) {
         if (view.getLayoutParams() != null) {
             loadViewHelper.loadWidthHeightFont(view);
             loadViewHelper.loadPadding(view);
