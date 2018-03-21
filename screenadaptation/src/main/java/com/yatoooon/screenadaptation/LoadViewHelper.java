@@ -1,6 +1,7 @@
 package com.yatoooon.screenadaptation;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
  */
 
 public class LoadViewHelper {
+    private static final String TAG = "LoadViewHelper";
 
     public float actualdensity;
     public float actualdensityDpi;
@@ -28,6 +30,16 @@ public class LoadViewHelper {
         this.designdpi = designdpi;
         this.fontsize = fontsize;
         this.unit = unit;
+        float[] actualScreenInfo = ActualScreen.screenInfo(context);
+        if (actualScreenInfo.length == 4) {
+            actualwidth = actualScreenInfo[0];
+            actualheight = actualScreenInfo[1];
+            actualdensity = actualScreenInfo[2];
+            actualdensityDpi = actualScreenInfo[3];
+        }
+    }
+
+    public void reset() {
         float[] actualScreenInfo = ActualScreen.screenInfo(context);
         if (actualScreenInfo.length == 4) {
             actualwidth = actualScreenInfo[0];
@@ -97,13 +109,13 @@ public class LoadViewHelper {
     }
 
     public void loadMaxWidthAndHeight(View view) {
-        ViewUtils.setMaxWidth(view,setValue(ViewUtils.getMaxWidth(view)));
-        ViewUtils.setMaxHeight(view,setValue(ViewUtils.getMaxHeight(view)));
+        ViewUtils.setMaxWidth(view, setValue(ViewUtils.getMaxWidth(view)));
+        ViewUtils.setMaxHeight(view, setValue(ViewUtils.getMaxHeight(view)));
     }
 
     public void loadMinWidthAndHeight(View view) {
-        ViewUtils.setMinWidth(view,setValue(ViewUtils.getMinWidth(view)));
-        ViewUtils.setMinHeight(view,setValue(ViewUtils.getMinHeight(view)));
+        ViewUtils.setMinWidth(view, setValue(ViewUtils.getMinWidth(view)));
+        ViewUtils.setMinHeight(view, setValue(ViewUtils.getMinHeight(view)));
     }
 
     public int setValue(int value) {
