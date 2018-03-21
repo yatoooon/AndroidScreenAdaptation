@@ -3,8 +3,6 @@ package com.yatoooon.screenadaptation;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.view.Window;
-import android.view.WindowManager;
 
 /**
  * Created by yatoooon on 2018/2/6.
