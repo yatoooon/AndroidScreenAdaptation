@@ -17,6 +17,12 @@ public class App extends Application {
         super.onCreate();
         ScreenAdapterTools.init(this);
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        ScreenAdapterTools.init(this);
+    }
 }
 ```
       (2.)在AndroidManifest.xml文件中声明使用你自己创建的application并且添加meta-data数据,例子上标明了这些数据的代表的意义
@@ -82,8 +88,9 @@ public class TestFragment extends Fragment {
   那些长篇大论的文章我也不想提,想必读者已经在别处看疯了,知道几个最简单的概念用起来就可以了  
      1. px是分辨率的单位 比如现在主流手机分辨率1080*1920.  
      2. dp是安卓开发专有的单位 在 不同的手机下 1dp = 不同的 px.  
-     3. sp是字体大小(前面清单文件中要求字体也用dp或者px),sp随系统字体大小变化而变化,但据我观察,像微信qq这些app的字体是不随系统显示字体大小变化的.  
-     ### 本库是按照设计图的宽度和对应标准dpi来适配的(宽度增加或减少,高度同比例增加或减少),在不同的分辨率,不同ppi(手机屏幕密度,又称为dpi),不同最小宽度(有的人喜欢去调开发者选项下面的最小宽度,主流手机默认为360dp)的手机下都做到了适配.(如果适配完发现高度不理想,那你就得考虑是不是高度方面写了太多的确定值,应该改用marchparent,或者使用权重比例,或者在外层包裹一个scrollview,等等等,想一些适配高度的一些办法)
+     3. sp是字体大小(前面清单文件中要求字体也用dp或者px),sp随系统字体大小变化而变化,但据我观察,像微信qq这些app的字体是不随系统显示字体大小变化的.
+     4. 由于本库是对宽度来进行适配的，所以需要在设备配置发生变化的时候重新初始化
+     ### 本库是按照设计图的宽度和对应标准dpi来适配的(宽度增加或减少,高度同比例增加或减少),在不同的分辨率,不同ppi(手机屏幕密度,又称为dpi),不同最小宽度(有的人喜欢去调开发者选项下面的最小宽度,主流手机默认为360dp)的手机下都做到了适配.
 ```
 ## 联系我
 * **Email**: <qazasdeszplm@126.com> 

@@ -37,6 +37,16 @@ public class LoadViewHelper {
         }
     }
 
+    public void reset(Context context) {
+        float[] actualScreenInfo = ActualScreen.screenInfo(context);
+        if (actualScreenInfo.length == 4) {
+            actualwidth = actualScreenInfo[0];
+            actualheight = actualScreenInfo[1];
+            actualdensity = actualScreenInfo[2];
+            actualdensityDpi = actualScreenInfo[3];
+        }
+    }
+
     public void loadView(ViewGroup viewGroup) {
         loadView(viewGroup, new Conversion(context));
     }
@@ -97,13 +107,13 @@ public class LoadViewHelper {
     }
 
     public void loadMaxWidthAndHeight(View view) {
-        ViewUtils.setMaxWidth(view,setValue(ViewUtils.getMaxWidth(view)));
-        ViewUtils.setMaxHeight(view,setValue(ViewUtils.getMaxHeight(view)));
+        ViewUtils.setMaxWidth(view, setValue(ViewUtils.getMaxWidth(view)));
+        ViewUtils.setMaxHeight(view, setValue(ViewUtils.getMaxHeight(view)));
     }
 
     public void loadMinWidthAndHeight(View view) {
-        ViewUtils.setMinWidth(view,setValue(ViewUtils.getMinWidth(view)));
-        ViewUtils.setMinHeight(view,setValue(ViewUtils.getMinHeight(view)));
+        ViewUtils.setMinWidth(view, setValue(ViewUtils.getMinWidth(view)));
+        ViewUtils.setMinHeight(view, setValue(ViewUtils.getMinHeight(view)));
     }
 
     public int setValue(int value) {

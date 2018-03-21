@@ -16,19 +16,26 @@ public class ScreenAdapterTools {
         return loadViewHelper;
     }
 
+    private static boolean isInitialised = false;
+
     public static void init(Context context) {
-        ApplicationInfo applicationInfo = null;
-        try {
-            applicationInfo = context.getPackageManager().getApplicationInfo(context
-                    .getPackageName(), PackageManager.GET_META_DATA);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+        if (isInitialised){
+            loadViewHelper.reset(context);
+        }else {
+            ApplicationInfo applicationInfo = null;
+            try {
+                applicationInfo = context.getPackageManager().getApplicationInfo(context
+                        .getPackageName(), PackageManager.GET_META_DATA);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            int designwidth = applicationInfo.metaData.getInt("designwidth");
+            int designdpi = applicationInfo.metaData.getInt("designdpi");
+            float fontsize = applicationInfo.metaData.getFloat("fontsize");
+            String unit = applicationInfo.metaData.getString("unit");
+            loadViewHelper = new LoadViewHelper(context, designwidth, designdpi, fontsize, unit);
+            isInitialised = true;
         }
-        int designwidth = applicationInfo.metaData.getInt("designwidth");
-        int designdpi = applicationInfo.metaData.getInt("designdpi");
-        float fontsize = applicationInfo.metaData.getFloat("fontsize");
-        String unit = applicationInfo.metaData.getString("unit");
-        loadViewHelper = new LoadViewHelper(context, designwidth, designdpi, fontsize, unit);
 
     }
 
