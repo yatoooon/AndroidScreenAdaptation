@@ -37,7 +37,7 @@ public class LoadViewHelper {
         }
     }
 
-    public void reset() {
+    public void reset(Context context) {
         float[] actualScreenInfo = ActualScreen.screenInfo(context);
         if (actualScreenInfo.length == 4) {
             actualwidth = actualScreenInfo[0];

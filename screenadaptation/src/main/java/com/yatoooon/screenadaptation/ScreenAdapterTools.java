@@ -20,7 +20,7 @@ public class ScreenAdapterTools {
 
     public static void init(Context context) {
         if (isInitialised){
-            loadViewHelper.reset();
+            loadViewHelper.reset(context);
         }else {
             ApplicationInfo applicationInfo = null;
             try {
