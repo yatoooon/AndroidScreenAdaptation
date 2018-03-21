@@ -12,7 +12,6 @@ import com.yatoooon.screenadaptation.ScreenAdapterTools;
  */
 
 public class App extends Application {
-    private static final String TAG = "App";
 
     @Override
     public void onCreate() {
@@ -30,6 +29,6 @@ public class App extends Application {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        ScreenAdapterTools.init(this);
+        ScreenAdapterTools.reset(this);
     }
 }

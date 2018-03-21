@@ -1,67 +1,26 @@
 package com.yatoooon.screenadaptation;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.yatoooon.screenadaptation.conversion.SimpleConversion;
+import com.yatoooon.screenadaptation.utils.ViewUtils;
+import com.yatoooon.screenadaptation.utils.dp2pxUtils;
 
 /**
  * Created by yatoooon on 2018/2/6.
  */
 
-public class LoadViewHelper {
+public class LoadViewHelper extends AbsLoadViewHelper {
 
-    public float actualdensity;
-    public float actualdensityDpi;
-    public float actualwidth;
-    public float actualheight;
-
-    private Context context;
-    private int designwidth;
-    private int designdpi;
-    private float fontsize;
-    private String unit;
-
-    public LoadViewHelper(Context context, int designwidth, int designdpi, float fontsize, String unit) {
-        this.context = context;
-        this.designwidth = designwidth;
-        this.designdpi = designdpi;
-        this.fontsize = fontsize;
-        this.unit = unit;
-        float[] actualScreenInfo = ActualScreen.screenInfo(context);
-        if (actualScreenInfo.length == 4) {
-            actualwidth = actualScreenInfo[0];
-            actualheight = actualScreenInfo[1];
-            actualdensity = actualScreenInfo[2];
-            actualdensityDpi = actualScreenInfo[3];
-        }
+    public LoadViewHelper(Context context, int designWidth, int designDpi, float fontSize, String unit) {
+        super(context, designWidth, designDpi, fontSize, unit);
     }
 
-    public void reset(Context context) {
-        float[] actualScreenInfo = ActualScreen.screenInfo(context);
-        if (actualScreenInfo.length == 4) {
-            actualwidth = actualScreenInfo[0];
-            actualheight = actualScreenInfo[1];
-            actualdensity = actualScreenInfo[2];
-            actualdensityDpi = actualScreenInfo[3];
-        }
-    }
-
-    public void loadView(ViewGroup viewGroup) {
-        loadView(viewGroup, new Conversion(context));
-    }
-
-    public void loadView(ViewGroup viewGroup, Conversion conversion) {
-        conversion.transform(viewGroup, this);
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            if (viewGroup.getChildAt(i) instanceof ViewGroup) {
-                loadView((ViewGroup) viewGroup.getChildAt(i), conversion);
-            } else {
-                conversion.transform(viewGroup.getChildAt(i), this);
-            }
-        }
-    }
-
+    @Override
     public void loadWidthHeightFont(View view) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams.width > 0) {
@@ -82,15 +41,15 @@ public class LoadViewHelper {
     }
 
     private float setFontSize(TextView textView) {
-        return calculateValue(textView.getTextSize() * fontsize);
+        return calculateValue(textView.getTextSize() * fontSize);
     }
 
-
+    @Override
     public void loadPadding(View view) {
         view.setPadding(setValue(view.getPaddingLeft()), setValue(view.getPaddingTop()), setValue(view.getPaddingRight()), setValue(view.getPaddingBottom()));
     }
 
-
+    @Override
     public void loadLayoutMargin(View view) {
         ViewGroup.LayoutParams params = view.getLayoutParams();
         ViewGroup.MarginLayoutParams marginLayoutParams = null;
@@ -106,11 +65,13 @@ public class LoadViewHelper {
         view.setLayoutParams(marginLayoutParams);
     }
 
+    @Override
     public void loadMaxWidthAndHeight(View view) {
         ViewUtils.setMaxWidth(view, setValue(ViewUtils.getMaxWidth(view)));
         ViewUtils.setMaxHeight(view, setValue(ViewUtils.getMaxHeight(view)));
     }
 
+    @Override
     public void loadMinWidthAndHeight(View view) {
         ViewUtils.setMinWidth(view, setValue(ViewUtils.getMinWidth(view)));
         ViewUtils.setMinHeight(view, setValue(ViewUtils.getMinHeight(view)));
@@ -125,11 +86,11 @@ public class LoadViewHelper {
 
     private float calculateValue(float value) {
         if ("px".equals(unit)) {
-            return value * ((float) actualwidth / (float) designwidth);
+            return value * ((float) actualWidth / (float) designWidth);
         } else if ("dp".equals(unit)) {
-            int dip = dp2pxutils.px2dip(context, value);
-            value = ((float) designdpi / 160) * dip;
-            return value * ((float) actualwidth / (float) designwidth);
+            int dip = dp2pxUtils.px2dip(actualDensity, value);
+            value = ((float) designDpi / 160) * dip;
+            return value * ((float) actualWidth / (float) designWidth);
 
         }
         return 0;

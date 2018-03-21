@@ -3,11 +3,9 @@ package com.yatoooon.screenadaptation;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-import android.view.Surface;
 import android.view.WindowManager;
 
 import static android.content.Context.WINDOW_SERVICE;
-
 
 public class ActualScreen {
 
@@ -17,7 +15,6 @@ public class ActualScreen {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         return new float[]{displayMetrics.widthPixels, displayMetrics.heightPixels, displayMetrics.density, displayMetrics.densityDpi};
     }
-
 
 }
 

@@ -1,21 +1,18 @@
-package com.yatoooon.screenadaptation;
+package com.yatoooon.screenadaptation.conversion;
 
-import android.content.Context;
 import android.view.View;
+
+import com.yatoooon.screenadaptation.AbsLoadViewHelper;
+import com.yatoooon.screenadaptation.LoadViewHelper;
 
 /**
  * Created by yatoooon on 2018/2/6.
  */
 
-public class Conversion {
+public class CustomConversion implements IConversion {
 
-    Context context;
-
-    public Conversion(Context context) {
-        this.context = context;
-    }
-
-    public void transform(View view, LoadViewHelper loadViewHelper) {
+    @Override
+    public void transform(View view, AbsLoadViewHelper loadViewHelper) {
         if (view.getLayoutParams() != null) {
             loadViewHelper.loadWidthHeightFont(view);
             loadViewHelper.loadPadding(view);
