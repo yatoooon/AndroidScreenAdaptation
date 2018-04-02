@@ -2,7 +2,6 @@ package com.yatoooon.androidscreenadaptation;
 
 import android.app.Application;
 import android.content.res.Configuration;
-import android.util.Log;
 
 import com.squareup.leakcanary.LeakCanary;
 import com.yatoooon.screenadaptation.ScreenAdapterTools;
@@ -29,6 +28,8 @@ public class App extends Application {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        ScreenAdapterTools.reset(this);
+        ScreenAdapterTools.getInstance().reset(this);
+
     }
+
 }

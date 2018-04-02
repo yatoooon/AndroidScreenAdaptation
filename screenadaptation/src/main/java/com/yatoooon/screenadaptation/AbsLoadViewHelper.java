@@ -1,13 +1,9 @@
 package com.yatoooon.screenadaptation;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yatoooon.screenadaptation.conversion.CustomConversion;
 import com.yatoooon.screenadaptation.conversion.IConversion;
 import com.yatoooon.screenadaptation.conversion.SimpleConversion;
 
@@ -27,7 +23,7 @@ public abstract class AbsLoadViewHelper {
     protected float fontSize;
     protected String unit;
 
-    public AbsLoadViewHelper(Context context,int designWidth, int designDpi, float fontSize, String unit) {
+    public AbsLoadViewHelper(Context context, int designWidth, int designDpi, float fontSize, String unit) {
         this.designWidth = designWidth;
         this.designDpi = designDpi;
         this.fontSize = fontSize;
@@ -50,14 +46,18 @@ public abstract class AbsLoadViewHelper {
     }
 
     public abstract void loadWidthHeightFont(View view);
+
     public abstract void loadPadding(View view);
+
     public abstract void loadLayoutMargin(View view);
+
     public abstract void loadMaxWidthAndHeight(View view);
+
     public abstract void loadMinWidthAndHeight(View view);
 
     // if subclass has owner conversion，you need override this method and provide your conversion
     public void loadView(ViewGroup viewGroup) {
-        loadView(viewGroup,new SimpleConversion());
+        loadView(viewGroup, new SimpleConversion());
     }
 
     public final void loadView(ViewGroup viewGroup, IConversion conversion) {

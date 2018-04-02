@@ -6,8 +6,7 @@ import android.view.View;
 import java.lang.reflect.Method;
 
 /**
- * View工具类
- * Created by 章鱼小丸子 on 2018/3/20.
+ * Created by zhangyuwan0 on 2018/3/20.
  */
 
 public class ViewUtils {

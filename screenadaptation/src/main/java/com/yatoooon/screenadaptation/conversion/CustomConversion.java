@@ -3,7 +3,6 @@ package com.yatoooon.screenadaptation.conversion;
 import android.view.View;
 
 import com.yatoooon.screenadaptation.AbsLoadViewHelper;
-import com.yatoooon.screenadaptation.LoadViewHelper;
 
 /**
  * Created by yatoooon on 2018/2/6.
