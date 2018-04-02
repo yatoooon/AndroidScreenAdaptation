@@ -5,7 +5,7 @@
 ## 快速开始
 1. **添加依赖**
  
-    ``` implementation 'me.yatoooon:screenadaptation:1.0.5'```
+    ``` implementation 'me.yatoooon:screenadaptation:1.0.7'```
 
 2. **初始化工具类**
 
@@ -18,10 +18,11 @@ public class App extends Application {
         ScreenAdapterTools.init(this);
     }
 
-    @Override
+//如果应用屏幕固定了某个方向不旋转的话(比如qq和微信),下面可不写.
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        ScreenAdapterTools.init(this);
+        ScreenAdapterTools.getInstance().reset(this);
     }
 }
 ```
@@ -59,8 +60,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_dp);
-        //在setContentView();后面加上下面这句话
-        ScreenAdapterTools.getInstance().loadView((ViewGroup) getWindow().getDecorView());
+        //ScreenAdapterTools.getInstance().reset(this); 如果希望分屏也适配的话,加上这句.
+        //在setContentView();后面加上下面这句话
+        ScreenAdapterTools.getInstance().loadView((ViewGroup) getWindow().getDecorView());
 
     }
 }
@@ -82,7 +84,7 @@ public class TestFragment extends Fragment {
             ScreenAdapterTools.getInstance().loadView((ViewGroup) view);
         }    
 ```
-      (3.)现在打开你的布局文件,并且打开预览,点击预览上部的小手机图标选择和你设计图匹配的模拟器,然后就可以按照设计图测量并编写布局文件,测量和编写的单位用px还是dp取决于你清单文件中的meta_data中unit填写的值,暂时只支持宽 高 padding layout_margin 字体大小  minmaxWidthHeight这几个属性,布局文件完成后,你看到的预览是什么样,各种真机运行出来就是什么样.
+      (3.)现在打开你的布局文件,并且打开预览,点击预览上部的小手机图标选择和你设计图匹配的模拟器,然后就可以按照设计图测量并编写布局文件,测量和编写的单位用px还是dp取决于你清单文件中的meta_data中unit填写的值,暂时只支持宽 高 padding layout_margin 字体大小 这几个属性(如果有minmaxWidthHeight这种属性值,适配时...loadView(...view,new CustomConversion()),如果有其他需要的属性值,请自行继承IConversion和AbsLoadViewHelper编写),布局文件完成后,你看到的预览是什么样,各种真机运行出来就是什么样.
 ## 原理
 ```
   那些长篇大论的文章我也不想提,想必读者已经在别处看疯了,知道几个最简单的概念用起来就可以了  
