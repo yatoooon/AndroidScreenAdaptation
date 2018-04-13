@@ -7,7 +7,7 @@
 ## 快速开始
 1. **添加依赖**
  
-    ``` implementation 'me.yatoooon:screenadaptation:1.0.7'```
+    ``` implementation 'me.yatoooon:screenadaptation:1.0.8'```
 
 2. **初始化工具类**
 
@@ -35,7 +35,7 @@ public class App extends Application {
         .....
         <meta-data
             android:name="designwidth"
-            android:value="1080" />  //设计图的宽,单位是像素,推荐用markman测量,量出来如果是750px那么请去找ui设计师要一份android的设计图.
+            android:value="1080" />  //设计图的宽,单位是像素,推荐用markman测量,量出来如果是750px那么请尽量去找ui设计师要一份android的设计图.
         <meta-data
             android:name="designdpi"
             android:value="480" />   //设计图对应的标准dpi,根据下面的那张图找到对应的dpi,比如1080就对应480dpi,如果拿到的是其他宽度的设计图,那么选择一个相近的dpi就好了
