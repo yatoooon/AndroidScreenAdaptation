@@ -1,12 +1,10 @@
 package com.yatoooon.screenadaptation;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.yatoooon.screenadaptation.conversion.SimpleConversion;
 import com.yatoooon.screenadaptation.utils.ViewUtils;
 import com.yatoooon.screenadaptation.utils.dp2pxUtils;
 
@@ -80,6 +78,8 @@ public class LoadViewHelper extends AbsLoadViewHelper {
     public int setValue(int value) {
         if (value == 0) {
             return 0;
+        } else if (value == 1) {
+            return 1;
         }
         return (int) calculateValue(value);
     }
