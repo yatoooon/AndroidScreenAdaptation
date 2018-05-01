@@ -53,14 +53,12 @@ public class LoadViewHelper extends AbsLoadViewHelper {
         ViewGroup.MarginLayoutParams marginLayoutParams = null;
         if (params instanceof ViewGroup.MarginLayoutParams) {
             marginLayoutParams = (ViewGroup.MarginLayoutParams) params;
-        } else {
-            marginLayoutParams = new ViewGroup.MarginLayoutParams(params);
+            marginLayoutParams.leftMargin = setValue(marginLayoutParams.leftMargin);
+            marginLayoutParams.topMargin = setValue(marginLayoutParams.topMargin);
+            marginLayoutParams.rightMargin = setValue(marginLayoutParams.rightMargin);
+            marginLayoutParams.bottomMargin = setValue(marginLayoutParams.bottomMargin);
+            view.setLayoutParams(marginLayoutParams);
         }
-        marginLayoutParams.leftMargin = setValue(marginLayoutParams.leftMargin);
-        marginLayoutParams.topMargin = setValue(marginLayoutParams.topMargin);
-        marginLayoutParams.rightMargin = setValue(marginLayoutParams.rightMargin);
-        marginLayoutParams.bottomMargin = setValue(marginLayoutParams.bottomMargin);
-        view.setLayoutParams(marginLayoutParams);
     }
 
     @Override

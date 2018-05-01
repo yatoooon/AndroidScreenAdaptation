@@ -27,8 +27,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-//    implementation project(':screenadaptation')
-    implementation 'me.yatoooon:screenadaptation:1.0.8'
+    implementation project(':screenadaptation')
+//    implementation 'me.yatoooon:screenadaptation:1.0.9'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }

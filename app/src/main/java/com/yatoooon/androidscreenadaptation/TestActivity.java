@@ -15,6 +15,7 @@ public class TestActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_dp);
+        ScreenAdapterTools.getInstance().reset(this);//如果希望android7.0分屏也适配的话,加上这句
         ScreenAdapterTools.getInstance().loadView((ViewGroup) getWindow().getDecorView());
     }
 
