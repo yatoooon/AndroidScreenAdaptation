@@ -7,7 +7,7 @@
 ## 快速开始
 1. **添加依赖**
  
-    ``` implementation 'me.yatoooon:screenadaptation:1.0.8'```
+    ``` implementation 'me.yatoooon:screenadaptation:1.0.9'```
 
 2. **初始化工具类**
 
@@ -20,7 +20,7 @@ public class App extends Application {
         ScreenAdapterTools.init(this);
     }
 
-//如果应用屏幕固定了某个方向不旋转的话(比如qq和微信),下面可不写.
+//旋转适配,如果应用屏幕固定了某个方向不旋转的话(比如qq和微信),下面可不写.
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
