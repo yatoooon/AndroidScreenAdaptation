@@ -6,12 +6,12 @@
     <TextView
         android:id="@+id/textview"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="120px"
         android:gravity="center"
         android:background="#f00"
         android:text="customview"
-        android:textSize="20dp"
-        android:layout_margin="10dp"
+        android:textSize="40px"
+        android:layout_margin="20px"
         android:textColor="#ffffff"
         />
 </RelativeLayout>

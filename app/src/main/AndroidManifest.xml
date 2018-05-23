@@ -21,6 +21,7 @@
         <activity android:name=".TestFragmentActivity" />
         <activity android:name=".TestRecyclerViewActivity" />
         <activity android:name=".TestCustomViewActivity" />
+        <activity android:name=".TestDynamicAddActivity" />
 
         <meta-data
             android:name="designwidth"
@@ -33,7 +34,7 @@
             android:value="1.0" />
         <meta-data
             android:name="unit"
-            android:value="dp" />
+            android:value="px" />
 
     </application>
 

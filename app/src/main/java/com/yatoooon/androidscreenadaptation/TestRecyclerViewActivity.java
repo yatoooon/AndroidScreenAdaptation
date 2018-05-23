@@ -13,7 +13,7 @@ public class TestRecyclerViewActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recyclerview_test_dp);
+        setContentView(R.layout.activity_recyclerview_test);
         RecyclerView recyclerView = findViewById(R.id.recyclerview_test);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

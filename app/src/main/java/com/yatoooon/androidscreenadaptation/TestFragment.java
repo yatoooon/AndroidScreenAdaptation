@@ -16,8 +16,8 @@ import com.yatoooon.screenadaptation.ScreenAdapterTools;
 public class TestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.test_dp, container, false);
-        ScreenAdapterTools.getInstance().loadView((ViewGroup) view);
+        View view = inflater.inflate(R.layout.test_px, container, false);
+        ScreenAdapterTools.getInstance().loadView(view);
         return view;
     }
 }

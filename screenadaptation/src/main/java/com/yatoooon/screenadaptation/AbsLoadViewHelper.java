@@ -56,18 +56,24 @@ public abstract class AbsLoadViewHelper {
     public abstract void loadMinWidthAndHeight(View view);
 
     // if subclass has owner conversion，you need override this method and provide your conversion
-    public void loadView(ViewGroup viewGroup) {
-        loadView(viewGroup, new SimpleConversion());
+    public void loadView(View view) {
+        loadView(view, new SimpleConversion());
     }
 
-    public final void loadView(ViewGroup viewGroup, IConversion conversion) {
-        conversion.transform(viewGroup, this);
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            if (viewGroup.getChildAt(i) instanceof ViewGroup) {
-                loadView((ViewGroup) viewGroup.getChildAt(i), conversion);
-            } else {
-                conversion.transform(viewGroup.getChildAt(i), this);
+    public final void loadView(View view, IConversion conversion) {
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            conversion.transform(viewGroup, this);
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if (viewGroup.getChildAt(i) instanceof ViewGroup) {
+                    loadView(viewGroup.getChildAt(i), conversion);
+                } else {
+                    conversion.transform(viewGroup.getChildAt(i), this);
+                }
             }
+        } else {
+            conversion.transform(view, this);
         }
+
     }
 }

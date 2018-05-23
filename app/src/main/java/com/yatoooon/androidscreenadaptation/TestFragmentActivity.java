@@ -12,7 +12,7 @@ public class TestFragmentActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_test_dp);
+        setContentView(R.layout.activity_fragment_test);
         FragmentManager fragmentManager = getSupportFragmentManager();
         TestFragment testFragment = new TestFragment();
         fragmentManager.beginTransaction().replace(R.id.main_container,testFragment).commit();

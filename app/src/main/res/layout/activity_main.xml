@@ -27,6 +27,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="自定义view适配" />
+    <Button
+        android:id="@+id/bt_dynamicaddview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动态添加View适配" />
 
 
 </LinearLayout>
