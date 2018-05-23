@@ -1,13 +1,13 @@
 # AndroidScreenAdaptation  
 ## 本库特点
-    完全不用改变自己的布局编写习惯,你原先是怎么写布局,就怎么写布局.不用去继承适配类,不用在最外层包裹适配布局,不用新建茫茫多的分辨率适配文件夹,不要求强制使用px为单位,可以实时预览布局,满足旋转和分屏适配,全面屏或带虚拟按键手机适配也没问题.
+    完全不用改变自己的布局编写习惯,你原先是怎么写布局,就怎么写布局.不用去继承适配类,不用在最外层包裹适配布局,不用新建茫茫多的分辨率适配文件夹,不要求强制使用px为单位,支持代码动态添加view适配,可以实时预览布局,满足旋转和分屏适配,全面屏或带虚拟按键手机适配也没问题.
 ## 效果展示
 ![](http://www.yatoooon.com/images/shipeixiaoguotu.png)
 ![](http://www.yatoooon.com/images/dpshipeixiaoguotu.png)
 ## 快速开始
 1. **添加依赖**
  
-    ``` implementation 'me.yatoooon:screenadaptation:1.0.9'```
+    ``` implementation 'me.yatoooon:screenadaptation:1.1.0'```
 
 2. **初始化工具类**
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_dp);
         //ScreenAdapterTools.getInstance().reset(this);//如果希望android7.0分屏也适配的话,加上这句
         //在setContentView();后面加上适配语句
-        ScreenAdapterTools.getInstance().loadView((ViewGroup) getWindow().getDecorView());
+        ScreenAdapterTools.getInstance().loadView(getWindow().getDecorView());
 
     }
 }
@@ -77,13 +77,13 @@ public class TestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.test_px, container, false);
         //拿到布局填充器返回的view后
-        ScreenAdapterTools.getInstance().loadView((ViewGroup) view);
+        ScreenAdapterTools.getInstance().loadView(view);
         return view;
     }
 }  
-注: 自定义view的话,在  ScreenAdapterTools.getInstance().loadView((ViewGroup) view);   外面包裹一层判断如下,不然在使用自定义view编写布局文件时预览xml会有问题!但不影响真机运行效果.
+注: 自定义view的话,在  ScreenAdapterTools.getInstance().loadView(view);   外面包裹一层判断如下,不然在使用自定义view编写布局文件时预览xml会有问题!但不影响真机运行效果.
         if (!isInEditMode()) {
-            ScreenAdapterTools.getInstance().loadView((ViewGroup) view);
+            ScreenAdapterTools.getInstance().loadView(view);
         }    
 ```
       (3.)现在打开你的布局文件,并且打开预览,点击预览上部的小手机图标选择和你设计图匹配的模拟器,然后就可以按照设计图测量并编写布局文件,测量和编写的单位用px还是dp取决于你清单文件中的meta_data中unit填写的值,暂时只支持宽 高 padding layout_margin 字体大小 这几个属性(如果有minmaxWidthHeight这种属性值,适配时...loadView(...view,new CustomConversion()),如果有其他需要的属性值,请自行继承IConversion和AbsLoadViewHelper编写),布局文件完成后,你看到的预览是什么样,各种真机运行出来就是什么样.
