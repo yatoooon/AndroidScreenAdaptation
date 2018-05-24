@@ -7,7 +7,7 @@
 ## 快速开始
 1. **添加依赖**
  
-    ``` implementation 'me.yatoooon:screenadaptation:1.1.0'```
+    ``` implementation 'me.yatoooon:screenadaptation:1.1.1'```
 
 2. **初始化工具类**
 
@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-      (2.)在Fragment或recyclerview,listview或gridview,viewpager,自定义view等等等,只要能找到布局填充器
-    
+      (2.)在Fragment或recyclerview,listview或gridview,viewpager,自定义view等等等,只要能找到布局填充器(自定义view完全是代码绘制的怎么办?往下看)
+    
 ```
 public class TestFragment extends Fragment {
     @Override
@@ -81,10 +81,12 @@ public class TestFragment extends Fragment {
         return view;
     }
 }  
-注: 自定义view的话,在  ScreenAdapterTools.getInstance().loadView(view);   外面包裹一层判断如下,不然在使用自定义view编写布局文件时预览xml会有问题!但不影响真机运行效果.
+注: 1.自定义view的话,在  ScreenAdapterTools.getInstance().loadView(view);   外面包裹一层判断如下,不然在使用自定义view编写布局文件时预览xml会有问题!但不影响真机运行效果.
         if (!isInEditMode()) {
             ScreenAdapterTools.getInstance().loadView(view);
         }    
+    2.完全代码绘制的自定义view怎么办?   比如说我绘制了个半径为100dp的圆,在代码里找到获取半径属性值circleRadius的地方  
+       circleRadius = ScreenAdapterTools.getInstance().loadCustomAttrValue(circleRadius);
 ```
       (3.)现在打开你的布局文件,并且打开预览,点击预览上部的小手机图标选择和你设计图匹配的模拟器,然后就可以按照设计图测量并编写布局文件,测量和编写的单位用px还是dp取决于你清单文件中的meta_data中unit填写的值,暂时只支持宽 高 padding layout_margin 字体大小 这几个属性(如果有minmaxWidthHeight这种属性值,适配时...loadView(...view,new CustomConversion()),如果有其他需要的属性值,请自行继承IConversion和AbsLoadViewHelper编写),布局文件完成后,你看到的预览是什么样,各种真机运行出来就是什么样.
 ## 原理
