@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-      (2.)在Fragment或recyclerview,listview或gridview,viewpager,自定义view等等等,只要能找到布局填充器(自定义view完全是代码绘制的怎么办?往下看)
+      (2.)在Fragment或recyclerview,listview或gridview,viewpager,自定义view等等等,只要能找到布局填充器(自定义view完全是代码绘制的没有用布局填充器怎么办?往下看)
     
 ```
 public class TestFragment extends Fragment {
