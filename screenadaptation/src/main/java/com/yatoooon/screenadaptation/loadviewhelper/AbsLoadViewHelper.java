@@ -1,9 +1,10 @@
-package com.yatoooon.screenadaptation;
+package com.yatoooon.screenadaptation.loadviewhelper;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yatoooon.screenadaptation.utils.ActualScreen;
 import com.yatoooon.screenadaptation.conversion.IConversion;
 import com.yatoooon.screenadaptation.conversion.SimpleConversion;
 
@@ -11,7 +12,7 @@ import com.yatoooon.screenadaptation.conversion.SimpleConversion;
  * Created by yosemite on 2018/3/21.
  */
 
-public abstract class AbsLoadViewHelper {
+public abstract class AbsLoadViewHelper implements ILoadViewHelper{
 
     protected float actualDensity;
     protected float actualDensityDpi;
@@ -44,16 +45,6 @@ public abstract class AbsLoadViewHelper {
             actualDensityDpi = actualScreenInfo[3];
         }
     }
-
-    public abstract void loadWidthHeightFont(View view);
-
-    public abstract void loadPadding(View view);
-
-    public abstract void loadLayoutMargin(View view);
-
-    public abstract void loadMaxWidthAndHeight(View view);
-
-    public abstract void loadMinWidthAndHeight(View view);
 
     // if subclass has owner conversion，you need override this method and provide your conversion
     public void loadView(View view) {

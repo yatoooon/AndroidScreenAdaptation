@@ -1,4 +1,4 @@
-package com.yatoooon.screenadaptation;
+package com.yatoooon.screenadaptation.utils;
 
 
 import android.content.Context;

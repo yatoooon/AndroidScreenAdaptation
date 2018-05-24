@@ -1,4 +1,4 @@
-package com.yatoooon.screenadaptation;
+package com.yatoooon.screenadaptation.loadviewhelper;
 
 import android.content.Context;
 import android.view.View;
@@ -50,7 +50,7 @@ public class LoadViewHelper extends AbsLoadViewHelper {
     @Override
     public void loadLayoutMargin(View view) {
         ViewGroup.LayoutParams params = view.getLayoutParams();
-        ViewGroup.MarginLayoutParams marginLayoutParams = null;
+        ViewGroup.MarginLayoutParams marginLayoutParams;
         if (params instanceof ViewGroup.MarginLayoutParams) {
             marginLayoutParams = (ViewGroup.MarginLayoutParams) params;
             marginLayoutParams.leftMargin = setValue(marginLayoutParams.leftMargin);
@@ -73,7 +73,13 @@ public class LoadViewHelper extends AbsLoadViewHelper {
         ViewUtils.setMinHeight(view, setValue(ViewUtils.getMinHeight(view)));
     }
 
-    public int setValue(int value) {
+    @Override
+    public int loadCustomAttrValue(int px) {
+        return setValue(px);
+    }
+
+
+    private int setValue(int value) {
         if (value == 0) {
             return 0;
         } else if (value == 1) {
