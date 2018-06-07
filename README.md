@@ -99,8 +99,9 @@ public class TestFragment extends Fragment {
 ```
 ## 联系我
 * **Email**: <qazasdeszplm@126.com> 
-* **qq**:    3529161483 
-
+* **qq**:    3529161483  
+## 注:
+    6月6日看到了头条技术团队的适配方案,他们是真的机智,虽然文章中有一些表述不太正确,链接:https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA ,原理差不多,只不过头条在源头修改了强制修改了density进行适配,这种写法是真他娘的省事,我当时怎么就没有想到呢???  不过如果你有直接写px的习惯(UI大妹子就只给标注px!),那就用我的框架吧.
 ## 版权
  ``` 
    Copyright 2018 yatoooon
