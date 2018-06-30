@@ -102,7 +102,8 @@ public class TestFragment extends Fragment {
 * **qq**:    3529161483  
 ## 注
     6月6日看到了头条技术团队的适配方案,他们是真的机智,虽然文章中有一些表述不太正确,链接:https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA ,原理差不多,只不过头条在源头修改了强制修改了density进行适配,这种写法是真他娘的省事,我当时怎么就没有想到呢???  不过如果你有直接写px的习惯(UI大妹子就只给标注px!),那就用我的框架吧.  
-    6月25日有人和我说头条这个方案在8.0以上机型无效,我也没有测,大家自己斟酌.
+    6月25日有人和我说头条这个方案在8.0以上机型无效,我也没有测,大家自己斟酌.  
+    6月28日有人和我说8.0也是可行的，修改activity的density而不是application的density就可以。
 ## 版权
  ``` 
    Copyright 2018 yatoooon
