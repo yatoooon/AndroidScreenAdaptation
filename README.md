@@ -2,8 +2,8 @@
 ## 本库特点
     完全不用改变自己的布局编写习惯,你原先是怎么写布局,就怎么写布局.不用去继承适配类,不用在最外层包裹适配布局,不用新建茫茫多的分辨率适配文件夹,不要求强制使用px为单位,支持代码动态添加view适配,可以实时预览布局,满足旋转和分屏适配,全面屏或带虚拟按键手机适配也没问题.
 ## 效果展示
-![](http://www.yatoooon.com/images/shipeixiaoguotu.png)
-![](http://www.yatoooon.com/images/dpshipeixiaoguotu.png)
+![](http://yatoooon.github.io/images/shipeixiaoguotu.png)
+![](http://yatoooon.github.io/images/dpshipeixiaoguotu.png)
 ## 快速开始
 1. **添加依赖**
  
